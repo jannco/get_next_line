@@ -6,13 +6,20 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:59:46 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/09 19:46:11 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:15:44 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <get_next_line.h>
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
 
+}
+
+int	main()
+{
+	int	fd;
+
+	fd = open("test.txt", O_RDWR);
 }
