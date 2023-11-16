@@ -26,6 +26,5 @@ int		ft_strlen(char *str);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 void	ft_freebuffer(int *flag, char *buffer);
-void	*ft_calloc(size_t size);
 
 #endif
