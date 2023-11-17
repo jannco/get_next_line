@@ -6,11 +6,11 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:24:48 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 10:52:08 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:28:20 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -35,7 +35,7 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
+/*
 int main(void)
 {
 	int		fd1, fd2, fd3;
@@ -64,11 +64,8 @@ int main(void)
 		printf("File 3: %s\n", line);
 		free(line);
 	}
-
-	// Закриваємо файли
 	close(fd1);
 	close(fd2);
 	close(fd3);
-
-	return 0;
-}
+	return (0);
+} */
