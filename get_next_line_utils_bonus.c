@@ -6,11 +6,11 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:27:44 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 10:41:27 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:04:31 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_freebuffer(int *flag, char *buffer)
 {
