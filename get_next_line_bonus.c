@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:24:48 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 12:06:05 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:34:07 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/*
+int	main()
 {
 	int		fd1, fd2, fd3;
 	char	*line;
@@ -68,4 +69,4 @@ int	main(void)
 	close(fd2);
 	close(fd3);
 	return (0);
-}
+} */
