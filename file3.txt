@@ -1,1 +1,3 @@
 Develop get_next_line() using only one static variable.
+098876
+asdasd

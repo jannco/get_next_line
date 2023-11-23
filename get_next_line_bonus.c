@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:24:48 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 12:34:07 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:56:32 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE + 1];
+	static char	buffer[MAX_FILE][BUFFER_SIZE + 1];
 	char		*line;
 	int			i;
 	int			flag;
@@ -24,11 +24,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
 		while (fd >= 0 && BUFFER_SIZE > i)
-			buffer[i++] = 0;
+			buffer[fd][i++] = 0;
 		return (NULL);
 	}
 	line = NULL;
-	while (flag && (buffer[0] || (read(fd, buffer, BUFFER_SIZE) > 0)))
+	while (flag && (buffer[fd][0] || (read(fd, buffer, BUFFER_SIZE) > 0)))
 	{
 		line = ft_strjoin(line, buffer);
 		ft_freebuffer(&flag, buffer);
@@ -36,37 +36,36 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*
-int	main()
+int	main(int	argc, char	**argv)
 {
-	int		fd1, fd2, fd3;
+	int		fd[argc - 1];
 	char	*line;
+	int		i = 0;
+	int		flag = 0;
 
-	fd1 = open("file1.txt", O_RDONLY);
-	fd2 = open("file2.txt", O_RDONLY);
-	fd3 = open("file3.txt", O_RDONLY);
-
-	if (fd1 < 0 || fd2 < 0 || fd3 < 0) {
-		perror("file opening failed");
-		return 1;
-	}
-	while ((line = get_next_line(fd1)) != NULL)
+	line = NULL;
+	if (argc <= 1)
 	{
-		printf("File 1: %s\n", line);
-		free(line);
+		write(1, "Write some arguments\n", 21);
+		return (1);
 	}
-	while ((line = get_next_line(fd2)) != NULL)
+	while (i < (argc - 1))
 	{
-		printf("File 2: %s\n", line);
-		free(line);
+		fd[i] = open(argv[i + 1], O_RDONLY);
+		i++;
 	}
-	while ((line = get_next_line(fd3)) != NULL)
+	i = 0;
+	while (flag == (argc - 1))
 	{
-		printf("File 3: %s\n", line);
-		free(line);
+		line = get_next_line(fd[i++]);
+		if (!line)
+			printf("Line: %s", line);
+		if (i == (argc - 1))
+			i = 0;
+		if (i < argc && !line)
+			flag++;
 	}
-	close(fd1);
-	close(fd2);
-	close(fd3);
+	while (!i)
+		close(fd[i--]);
 	return (0);
-} */
+}

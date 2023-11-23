@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:59:46 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/14 19:18:28 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:02:30 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+
 /*
 int	main()
 {

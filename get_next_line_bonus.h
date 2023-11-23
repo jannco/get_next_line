@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:40:52 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 12:40:56 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:56:57 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 4
+# endif
+
+# ifndef MAX_FILE
+#  define MAX_FILE 255
 # endif
 
 # include <unistd.h>
