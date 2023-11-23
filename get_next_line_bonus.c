@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:24:48 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/23 10:56:32 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:15:21 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ char	*get_next_line(int fd)
 
 	i = 0;
 	flag = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+	if (fd >= MAX_FILE || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
-		while (fd >= 0 && BUFFER_SIZE > i)
+		while (fd >= 0 && BUFFER_SIZE >= i && fd < MAX_FILE)
 			buffer[fd][i++] = 0;
 		return (NULL);
 	}
 	line = NULL;
-	while (flag && (buffer[fd][0] || (read(fd, buffer, BUFFER_SIZE) > 0)))
+	while (flag && (buffer[fd][0] || (read(fd, buffer[fd], BUFFER_SIZE) > 0)))
 	{
 		line = ft_strjoin(line, buffer);
 		ft_freebuffer(&flag, buffer);
