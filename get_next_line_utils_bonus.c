@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:27:44 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/27 16:46:09 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:26:24 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	ft_freebuffer(int *flag, char *buffer)
 			buffer[j++] = buffer[i];
 		if (buffer[i] == '\n')
 			*flag = 0;
-		buffer[i++] = 0;
+		buffer[i++] = '\0';
 	}
 }
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!str)
