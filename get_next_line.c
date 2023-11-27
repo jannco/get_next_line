@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:59:46 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/17 16:02:30 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:52:36 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 	flag = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
-		while (fd >= 0 && BUFFER_SIZE > i)
+		while (BUFFER_SIZE > i)
 			buffer[i++] = 0;
 		return (NULL);
 	}
@@ -32,6 +32,8 @@ char	*get_next_line(int fd)
 	{
 		line = ft_strjoin(line, buffer);
 		ft_freebuffer(&flag, buffer);
+		if (line == NULL)
+			return (NULL);
 	}
 	return (line);
 }

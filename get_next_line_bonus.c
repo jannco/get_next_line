@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:24:48 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/23 11:15:21 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:01:02 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,33 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[MAX_FILE][BUFFER_SIZE + 1];
+	static char	buffer[FILE_MAX][BUFFER_SIZE + 1];
 	char		*line;
 	int			i;
 	int			flag;
 
 	i = 0;
 	flag = 1;
-	if (fd >= MAX_FILE || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+	if (fd >= FILE_MAX || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
-		while (fd >= 0 && BUFFER_SIZE >= i && fd < MAX_FILE)
-			buffer[fd][i++] = 0;
+		// while (fd >= 0 && BUFFER_SIZE >= i && fd < FILE_MAX)
+		// 	buffer[fd][i++] = 0;
+		if (fd > 0 && fd < FILE_MAX && read(fd, 0, 0) >= 0)
+			while (BUFFER_SIZE > i)
+				buffer[fd][i++] = 0;
 		return (NULL);
 	}
 	line = NULL;
 	while (flag && (buffer[fd][0] || (read(fd, buffer[fd], BUFFER_SIZE) > 0)))
 	{
-		line = ft_strjoin(line, buffer);
-		ft_freebuffer(&flag, buffer);
+		line = ft_strjoin(line, buffer[fd]);
+		ft_freebuffer(&flag, buffer[fd]);
+		if (line == NULL)
+			return (NULL);
 	}
 	return (line);
 }
-
+/*
 int	main(int	argc, char	**argv)
 {
 	int		fd[argc - 1];
@@ -68,4 +73,4 @@ int	main(int	argc, char	**argv)
 	while (!i)
 		close(fd[i--]);
 	return (0);
-}
+} */
