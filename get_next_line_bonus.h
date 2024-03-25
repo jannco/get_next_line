@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:40:52 by yadereve          #+#    #+#             */
-/*   Updated: 2023/11/27 19:21:13 by yadereve         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:12:28 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# ifndef FILE_MAX
-#  define FILE_MAX 147
-# endif
-
 # include <unistd.h>
 # include <stdlib.h>
-// # include <stdio.h>
+# include <stdio.h>
 // # include <fcntl.h>
 
 size_t	ft_strlen(const char *str);
